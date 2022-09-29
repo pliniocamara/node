@@ -1,11 +1,11 @@
 const os = require('os');
 
-// function memoriaLivre() {
-//     return parseInt(os.freemem()/(1024*1024));
-// };
+const totalMem = parseInt(os.totalmem()/1024*1024);
+const freeMem = parseInt(os.freemem()/1024*1024);
 
-const memoria = {
-    livre: parseInt(os.freemem()/(1024*1024))
-}
+setInterval(() => {
+    const totalMem = parseInt(os.totalmem()/(1024/1024));
+    const freeMem = parseInt(os.freemem()/(1024/1024));
 
-console.log(memoria.livre);
+    console.log(`Percentual de memória utilizada: ${(freeMem/totalMem*100).toFixed(2)}%`)
+}, 1000);
